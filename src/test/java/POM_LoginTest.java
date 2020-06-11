@@ -1,5 +1,3 @@
-package SamplePOM;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -21,37 +19,53 @@ import java.util.concurrent.TimeUnit;
 
 import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
 
-public class DataDrivenTest {
+public class POM_LoginTest {
 
     static WebDriver driver;
+    String url = "http://webdriveruniversity.com/Login-Portal/index.html";
+    static String filePath = "Test_Data.xlsx";
+
+    static POM_LoginPage lPage;
+
+    static XSSFSheet sheet;
+
     @BeforeClass
-    public static void setup(){
+    public static void setup() throws IOException {
         WebDriverManager.getInstance(CHROME).setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+        lPage = new POM_LoginPage(driver);
+
+        FileInputStream file = new FileInputStream(filePath);
+        XSSFWorkbook workbook = new XSSFWorkbook(file);
+        sheet = workbook.getSheet("Login");
     }
 
     @org.junit.Test
     public void TestLogin() throws InterruptedException, IOException {
-        driver.get("http://webdriveruniversity.com/Login-Portal/index.html");
-
-        FileInputStream file = new FileInputStream("LoginCredential.xlsx");
-        XSSFWorkbook workbook = new XSSFWorkbook(file);
-        XSSFSheet sheet = workbook.getSheet("Sheet1");
+        driver.get(url);
 
         int countRow = sheet.getLastRowNum();
 
         for(int row = 1; row <= countRow; row++){
             XSSFRow curr_row = sheet.getRow(row);
-            String username = curr_row.getCell(0).getStringCellValue();
-            String password = curr_row.getCell(1).getStringCellValue();
 
-            System.out.printf("Iteration %d: Username: %s and password %s", row, username, password);
-            System.out.println();
+            try{
+                String username = curr_row.getCell(0).getStringCellValue();
+                String password = curr_row.getCell(1).getStringCellValue();
 
-            driver.findElement(By.id("text")).sendKeys(username);
-            driver.findElement(By.id("password")).sendKeys(password);
-            driver.findElement(By.id("login-button")).click();
+                System.out.printf("Iteration %d: Username: %s and password %s", row, username, password);
+
+                lPage.fillUsername(username);
+                lPage.fillPassword(password);
+
+            } catch(NullPointerException ex){
+                lPage.fillUsername("");
+                lPage.fillPassword("");
+            }
+
+            lPage.clickLogin();
 
             Thread.sleep(1000);
 
@@ -68,7 +82,4 @@ public class DataDrivenTest {
             driver.quit();
         }
     }
-
-
-
 }

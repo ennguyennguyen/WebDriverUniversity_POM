@@ -1,5 +1,3 @@
-package SamplePOM;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -41,5 +39,12 @@ public class POM_ContactUsPage {
 
     public void clickReset(){
         driver.findElement(resetBtn).click();
+    }
+
+    public void clearAllField(){
+        driver.findElement(firstName).clear();
+        driver.findElement(lastName).clear();
+        driver.findElement(email).clear();
+        driver.findElement(comments).clear();
     }
 }
