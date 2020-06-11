@@ -1,6 +1,11 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+/*
+ * WHAT WE WILL COVER IN THIS FORM:
+ *  - Read from file
+ *  - Use xpath to locate the web element
+ *  - Handle null input data
+ * */
 public class POM_LoginPage {
     WebDriver driver;
 

@@ -4,7 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-
+/*
+ * WHAT WE WILL COVER IN THIS FORM:
+ *  - Perform action click() in multiple way:
+ *      + Use webDriver click()
+ *      + Use Javascript to click()
+ *      + Use Action builder to click()
+ *  - Use xpath to locate various types of alerts
+ *
+ * */
 public class POM_ClickActionPage {
     WebDriver driver;
 
