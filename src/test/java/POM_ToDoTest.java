@@ -65,11 +65,11 @@ public class POM_ToDoTest {
         }
 
         //[NGUYEN] try this first, i assume we cannot assert 2 web elements, should change to a String
-        for(WebElement i: todoPage.getItems()){
-            if (i.equals(anItem)){
-                Assert.assertEquals(anItem, i);
-            }
-        }
+//        for(WebElement i: todoPage.getItems()){
+//            if (i.equals(anItem)){
+//                Assert.assertEquals(anItem, i);
+//            }
+//        }
     }
 
     @Test(priority = 2)
