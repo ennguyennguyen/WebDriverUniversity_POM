@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="D:/00_MASTER OF COMPUTER SCIENCE_MUM/00_Projects/19_WebDriverUniversity_POM"><classes/></test></suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <test verbose="2" preserve-order="true"
+          name="D:/00_MASTER OF COMPUTER SCIENCE_MUM/00_Projects/19_WebDriverUniversity_POM">
+
+        <!-- Add all the Test classes in here -->
+        <classes>
+            <class name = "POM_LoginTest" />
+            <class name = "POM_ContactUsTest" />
+            <class name = "POM_ClickActionTest"/>
+            <class name = "POM_ToDoTest" />
+        </classes>
+    </test>
+</suite>

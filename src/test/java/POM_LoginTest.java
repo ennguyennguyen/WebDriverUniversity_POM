@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -42,7 +43,7 @@ public class POM_LoginTest {
         sheet = workbook.getSheet("Login");
     }
 
-    @org.junit.Test
+    @Test
     public void TestLogin() throws InterruptedException, IOException {
         driver.get(url);
 

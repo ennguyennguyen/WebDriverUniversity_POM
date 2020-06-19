@@ -59,4 +59,12 @@ public class POM_ToDoListPage {
             ex.printStackTrace();
         }
     }
+
+    public void removeAllItem(){
+        List<WebElement> items = driver.findElements(itemList);
+
+        for (int i = 0; i < items.size(); i++){
+            items.remove(items.get(i));
+        }
+    }
 }

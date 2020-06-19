@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]">
+  <test name="D:/00_MASTER OF COMPUTER SCIENCE_MUM/00_Projects/19_WebDriverUniversity_POM(failed)">
+    <classes>
+      <class name="POM_ToDoTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="TestAddItem"/>
+          <include name="setup"/>
+          <include name="RemoveItem"/>
+        </methods>
+      </class> <!-- POM_ToDoTest -->
+      <class name="POM_ClickActionTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- POM_ClickActionTest -->
+    </classes>
+  </test> <!-- D:/00_MASTER OF COMPUTER SCIENCE_MUM/00_Projects/19_WebDriverUniversity_POM(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->
